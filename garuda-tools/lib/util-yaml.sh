@@ -289,7 +289,7 @@ write_partition_conf(){
     echo "defaultFileSystemType: btrfs" >> "$conf"
     echo "directoryFilesystemRestrictions:" >> "$conf"
     echo '    - directory: "/"' >> "$conf"
-    echo '      allowedFilesystemTypes: ["btrfs"]' >> "$conf"
+    echo '      allowedFilesystemTypes: ["btrfs", "f2fs", "ext4", "xfs"]' >> "$conf"
     echo '    - directory: "efi"' >> "$conf"
     echo '      allowedFilesystemTypes: ["fat32"]' >> "$conf"
     echo '      onlyWhenMountpoint: true' >> "$conf"

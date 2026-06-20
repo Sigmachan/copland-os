@@ -315,9 +315,9 @@ init_buildiso(){
 
     [[ -z ${dist_codename} ]] && dist_codename=$(get_codename)
 
-    dist_name=$(get_distname)
+    [[ -z ${dist_name} ]] && dist_name=$(get_distname)
 
-    iso_name=$(get_osid)
+    [[ -z ${iso_name} ]] && iso_name=$(get_osid)
 
     [[ -z ${dist_branding} ]] && dist_branding="garuda"
 
