@@ -176,7 +176,7 @@ element-desktop-git
 # shell: zsh + starship (configured in /etc/skel, not force-set as login shell)
 zsh
 starship
-# claw code (gajae-code (GJC)) provisioned via bun on first login (overlay autostart)
+# claw code (gajae-code / Red-claw) provisioned via bun on first login (overlay autostart)
 bun
 # EndeavourOS ethos: keep AUR within reach
 paru

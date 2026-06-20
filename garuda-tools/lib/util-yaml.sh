@@ -46,7 +46,7 @@ write_bootloader_conf(){
     msg2 "Writing %s ..." "${conf##*/}"
     source "$(get_preset)"
     echo '---' > "$conf"
-    echo "efiBootLoader: \"${efi_boot_loader}\"" >> "$conf"
+    echo "efiBootLoader: \"systemd-boot\"" >> "$conf"
     echo 'grubInstall: "grub-install"' >> "$conf"
     echo 'grubMkconfig: "grub-mkconfig"' >> "$conf"
     echo 'grubCfg: "/boot/grub/grub.cfg"' >> "$conf"

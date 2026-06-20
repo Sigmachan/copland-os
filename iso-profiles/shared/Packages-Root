@@ -138,6 +138,7 @@ garuda-dracut-support
 garuda-config-agent
 
 ## CachyOS optimization injection
+plymouth
 cachyos-keyring
 cachyos-mirrorlist
 cachyos-v4-mirrorlist
