@@ -1,3 +1,4 @@
+extra/libheif
 ####---->> INPUT
 wmctrl
 xdotool

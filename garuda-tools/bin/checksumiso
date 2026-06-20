@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIBDIR='/usr/lib/garuda-tools'
+LIBDIR='/usr/local/lib/garuda-tools'
 
 [[ -r ${LIBDIR}/util-msg.sh ]] && source ${LIBDIR}/util-msg.sh
 
