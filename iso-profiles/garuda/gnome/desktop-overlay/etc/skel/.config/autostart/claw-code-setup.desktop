@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Claw Code Setup
+Comment=Provision gajae-code () on first login
+Exec=bash -lc "$HOME/.local/bin/claw-code-setup.sh"
+X-GNOME-Autostart-enabled=true
+NoDisplay=true
+Terminal=false

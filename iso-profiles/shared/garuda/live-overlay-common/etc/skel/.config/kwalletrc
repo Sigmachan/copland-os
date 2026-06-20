@@ -1,0 +1,3 @@
+# Disable KDE wallet in live session, nonfunctional because of autologin
+[Wallet]
+Enabled=false

@@ -1,0 +1,8 @@
+[Keyboard]
+KeyRepeat=repeat
+NumLock=0
+RepeatDelay=250
+RepeatRate=25
+
+[Mouse]
+cursorSize=24

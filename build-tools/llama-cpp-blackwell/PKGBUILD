@@ -1,0 +1,36 @@
+# Maintainer: sigmachan (Garuda x CachyOS v2 Blackwell build)
+# llama.cpp compiled for NVIDIA Blackwell (RTX 5090, CUDA arch 120a / sm_120) +
+# znver5 host CPU (Ryzen 9 9950X3D). Proven: 78 t/s tg on gemma3-27B-Q4 fully on the 5090.
+pkgname=llama.cpp-blackwell
+pkgver=f449e05
+pkgrel=1
+pkgdesc="llama.cpp (CUDA) tuned for NVIDIA Blackwell sm_120a (RTX 5090) + znver5"
+arch=(x86_64)
+url="https://github.com/ggml-org/llama.cpp"
+license=(MIT)
+depends=(cuda curl openssl glibc gcc-libs)
+makedepends=(cmake ninja git gcc15)
+provides=(llama.cpp)
+conflicts=(llama.cpp llama-cpp-cuda)
+options=(!lto !debug)
+source=("git+https://github.com/ggml-org/llama.cpp#commit=${pkgver}")
+sha256sums=('SKIP')
+
+build() {
+  cd llama.cpp
+  PATH="/opt/cuda/bin:$PATH" cmake -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=120 \
+    -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_NATIVE=ON \
+    -DLLAMA_CURL=ON -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=ON \
+    -DCMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc \
+    -DCMAKE_CUDA_HOST_COMPILER=/usr/bin/gcc-15 \
+    -DCMAKE_INSTALL_PREFIX=/usr
+  cmake --build build --config Release
+}
+
+package() {
+  cd llama.cpp
+  DESTDIR="$pkgdir" cmake --install build
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

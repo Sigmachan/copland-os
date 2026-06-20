@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Garuda Hyprland (uwsm-managed)
+Comment=An intelligent dynamic tiling Wayland compositor
+Exec=uwsm start -- garuda-hyprland.desktop
+Type=Application

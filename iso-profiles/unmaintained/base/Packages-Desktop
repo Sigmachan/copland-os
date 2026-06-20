@@ -1,0 +1,18 @@
+
+####---->> NETWORK
+connman
+iwd
+cmst
+blueberry
+qomui-git
+
+
+
+###---->> INPUT
+input-devices-support
+libinput-gestures
+gestures
+
+
+
+
