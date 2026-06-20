@@ -32,3 +32,14 @@ default-folder-viewer='list-view'
 [org.gnome.nautilus.list-view]
 use-tree-view=true
 default-zoom-level='small'
+
+# Copland OS default wallpaper (the distro logo art).
+[org.gnome.desktop.background]
+picture-uri='file:///usr/share/backgrounds/copland-os.png'
+picture-uri-dark='file:///usr/share/backgrounds/copland-os.png'
+picture-options='zoom'
+primary-color='#222226'
+
+[org.gnome.desktop.screensaver]
+picture-uri='file:///usr/share/backgrounds/copland-os.png'
+picture-options='zoom'

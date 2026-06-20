@@ -438,7 +438,7 @@ write_settings_conf(){
     echo "    - show:" >> "$conf"
     echo "        - finished" >> "$conf" && write_finished_conf
     echo '' >> "$conf"
-    echo "branding: ${iso_name}" >> "$conf"
+    echo "branding: garuda" >> "$conf"
     echo '' >> "$conf"
     if ${oem_used}; then
         echo "prompt-install: false" >> "$conf"

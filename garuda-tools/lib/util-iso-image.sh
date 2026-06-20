@@ -106,7 +106,7 @@ windowPlacement: ${windowplacement}
 # bootloaderEntryName is how this installation / distro is named
 # in the boot loader (e.g. in the GRUB menu).
 strings:
-    productName:         ${dist_name} Linux
+    productName:         ${dist_name}
     shortProductName:    ${dist_name}
     version:             ${dist_release}
     shortVersion:        ${dist_release}

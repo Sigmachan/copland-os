@@ -1,14 +1,14 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name=Install Garuda Linux
-Name[da]=Installer Garuda Linux
-Name[de]=Garuda Linux installation
+Name=Install Copland OS
+Name[da]=Installer Copland OS
+Name[de]=Copland OS installation
 GenericName=Live Installer
 GenericName[da]=Live-installationsprogram
 Comment=Install the operating system to disk
 Comment[da]=Installer styresystemet på disk
-Comment[de]=Garuda Linux installieren
+Comment[de]=Copland OS installieren
 Exec=sudo -E calamares
 Icon=calamares
 Terminal=false
