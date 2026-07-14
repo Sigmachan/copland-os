@@ -1,0 +1,11 @@
+name = "vscode"
+version = "latest"
+description = "Visual Studio Code - code editor"
+author = "upm"
+license = "MIT"
+
+[packages]
+apt = ["code"]
+dnf = ["code"]
+pacman = ["code"]
+zypper = ["code"]

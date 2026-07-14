@@ -1,0 +1,22 @@
+name = "docker"
+version = "24.0"
+description = "Docker Engine - container runtime"
+author = "upm"
+license = "Apache-2.0"
+
+[packages]
+apt = ["docker.io", "docker-compose"]
+dnf = ["docker", "docker-compose"]
+pacman = ["docker", "docker-compose"]
+zypper = ["docker", "docker-compose"]
+
+[[files]]
+url = "https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64"
+path = "/usr/local/bin/docker-compose"
+chmod_executable = true
+
+[post_install]
+commands = [
+    "systemctl enable docker || true",
+    "systemctl start docker || true",
+]

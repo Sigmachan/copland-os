@@ -1,0 +1,14 @@
+name = "neovim"
+version = "stable"
+description = "Neovim - hyperextensible Vim-based text editor"
+author = "upm"
+license = "Apache-2.0"
+
+[packages]
+apt = ["neovim"]
+dnf = ["neovim"]
+pacman = ["neovim"]
+zypper = ["neovim"]
+
+[post_install]
+commands = ["nvim --version || true"]

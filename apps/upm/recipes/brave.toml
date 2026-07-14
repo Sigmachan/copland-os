@@ -1,0 +1,9 @@
+name = "brave"
+description = "Brave browser from the official site"
+homepage = "https://brave.com"
+supported_arches = ["x86_64", "aarch64"]
+
+[download]
+github_repo = "brave/brave-browser"
+github_asset_pattern = "brave-browser-*.{arch}.rpm"
+pkg_format = "rpm"

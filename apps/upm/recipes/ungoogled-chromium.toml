@@ -1,0 +1,8 @@
+name = "ungoogled-chromium"
+description = "Google Chromium, sans integration with Google from the official site"
+homepage = "https://github.com/ungoogled-software/ungoogled-chromium-portablelinux"
+supported_arches = ["x86_64"]
+
+[download]
+url_template = "https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/{version}/ungoogled-chromium_{version}_linux.tar.xz"
+pkg_format = "tar.xz"

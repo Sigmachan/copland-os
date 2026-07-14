@@ -1,0 +1,5 @@
+/target
+upm.tar.*
+po/*.mo
+locale/
+testdata/pkg/*
