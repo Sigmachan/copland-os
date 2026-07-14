@@ -18,10 +18,12 @@ alternative. Both share the same CachyOS/hardware/gaming/AI base; only the deskt
 - **Desktop (flagship)** — **KDE Plasma 6** themed with **Layan** (dark global theme + kvantum +
   aurorae) instead of the default dragonized meta, plus `kwin` blur + rounded-corners effects, SDDM,
   Slot-Dark icons and Bibata cursor. GNOME profile stays available.
-- **Optimized base** — `cachyos-znver4`/`-core`/`-extra` + `cachyos` repos injected **above**
-  `core/extra/multilib` so prebuilt x86-64-v4 packages win by priority; garuda-* metas remain. Ships
-  the CachyOS tuning set (`cachyos-settings`, `ananicy-cpp` + `cachyos-ananicy-rules`) and
-  `cachyos-kernel-manager` for building custom CachyOS/tkg-style kernels post-install.
+- **Optimized base** — optimized packages come from **CachyOS znver4** + **ALHP x86-64-v4** + Garuda
+  + AUR. CachyOS `-znver4`/`-core`/`-extra` + `cachyos` repos sit at the top; **ALHP**
+  (`{core,extra,multilib}-x86-64-v4`) rebuilds the rest of the Arch tree optimized, directly above
+  stock `core/extra/multilib` (final fallback); garuda-* metas remain. Ships the CachyOS tuning set
+  (`cachyos-settings`, `ananicy-cpp` + `cachyos-ananicy-rules`) and `cachyos-kernel-manager` for
+  building custom CachyOS/tkg-style kernels post-install.
 - **Distro feature ports** — Garuda Btrfs snapshots + boot-into-snapshot rollback (`snapper`,
   `snapper-support`, `grub-btrfs`, `btrfs-assistant`); Nobara-style GPU control (`lact`); PikaOS/Bazzite
   `scx_lavd` scheduler.

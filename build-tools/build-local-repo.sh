@@ -29,7 +29,8 @@ LOCAL_PKGBUILDS=("$HERE/../llama-cpp-blackwell")
 # (bottles-git is broken upstream right now — stale prepare() sed — so bottles stays stable from chaotic.)
 # Layan (KDE flagship theme) GTK + icon companions are AUR-only; the Plasma side
 # (plasma6-themes-layan-git) and the kwin effects come from chaotic-aur directly.
-AUR_PKGS=(gamescope-git proton-ge-custom-bin apollo-cuda-git hiddify-next-bin python-aiohttp-jinja2 python-aiohttp-cors decky-loader google-chrome-dev zenpower3-dkms protonup-qt-git discord-canary layan-gtk-theme-git tela-circle-icon-theme-git)
+# alhp-keyring + alhp-mirrorlist bootstrap the ALHP x86-64-v4 repos (AUR-only).
+AUR_PKGS=(gamescope-git proton-ge-custom-bin apollo-cuda-git hiddify-next-bin python-aiohttp-jinja2 python-aiohttp-cors decky-loader google-chrome-dev zenpower3-dkms protonup-qt-git discord-canary layan-gtk-theme-git tela-circle-icon-theme-git alhp-keyring alhp-mirrorlist)
 FAILED=()
 
 build_dir() {
