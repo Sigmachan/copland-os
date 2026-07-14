@@ -1,5 +1,7 @@
 # Copland UPM
 
+[Русская документация](README.ru.md)
+
 Copland's package manager for official repositories, local Copland
 repositories and the AUR. It keeps pacman-compatible operations and Paru's
 resolver while adding an EPM-style command vocabulary, recipes and automatic
@@ -8,9 +10,14 @@ LLVM-first AUR builds.
 ## Installation
 
 ```sh
-cd build-tools/upm
-makepkg -si
+sudo pacman -S --needed base-devel rustup clang llvm lld gcc git
+rustup default stable
+cargo build --release --locked
+sudo install -Dm755 target/release/upm /usr/local/bin/upm
 ```
+
+UPM requires an Arch-derived system with current pacman/libalpm. It is not a
+package-manager replacement for Ubuntu or Debian WSL installations.
 
 ## Commands
 
