@@ -33,8 +33,6 @@ bleeding-edge rc kernel, NVIDIA open module, a gaming/creator stack, and a Steam
 | `iso-profiles/shared/` | shared package lists + overlays |
 | `garuda-tools/data/` | build `pacman-*.conf` (repo priority) + `make.conf.d` (znver5 Clang/ThinLTO for local builds) |
 | `build-tools/build-local-repo.sh` | builds the AUR/custom packages into the `blackwell-local` repo |
-| `apps/upm/` | Copland's pacman/AUR manager, derived from Paru with EPM-style commands |
-| `build-tools/upm/` | Arch package for installing UPM into the ISO |
 | `build-tools/llama-cpp-blackwell/` | `llama.cpp` PKGBUILD (CUDA sm_120) |
 | `build-tools/linux-tkg-p03/` | optional `linux-tkg` p03 kernel config |
 
@@ -61,15 +59,6 @@ sudo buildiso -p gnome   # run from this iso-profiles dir; output to /var/cache/
 
 Requires an **AVX-512 (x86-64-v4)** CPU; the image targets NVIDIA. The 197 MB `Slot-Dark-Icons`
 theme is not vendored here — drop your icon theme into the desktop-overlay before building.
-
-## UPM package manager
-
-Copland ships `upm` instead of `paru`. It retains pacman-compatible operations
-and Paru's libalpm/AUR resolver, and adds EPM-style commands such as
-`upm install`, `upm search`, `upm play`, `upm service` and `upm doctor`.
-Local AUR builds prefer a compile-tested Clang/LLVM/lld toolchain and retry
-once with GCC when LLVM is unavailable or incompatible. See
-[`apps/upm/README.md`](apps/upm/README.md) for configuration and provenance.
 
 ## Credits
 
