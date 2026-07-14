@@ -234,18 +234,21 @@ upscayl-desktop-git
 # vLLM + vllm-playground are provisioned first-boot via /usr/local/bin/blackwell-ai-setup.
 
 
-####---->> DAILY DRIVER SOFTWARE: Kira's dock + shell + claw code
-# bleeding/canary variants where packaged (Windows-Canary principle).
-google-chrome
-google-chrome-dev
-visual-studio-code-bin
+####---->> DAILY DRIVER SOFTWARE: Kira's pinned dock (confirmed) + shell + claw code
+# Kira's taskbar: chromium (clang) · fdm · steam · xbox · discord · spotify · ayugram
+# chromium: the Clang/LTO/PGO-optimized build wins from cachyos-znver4 / ALHP by repo priority.
+chromium
+# fdm (Free Download Manager)
 freedownloadmanager
-ayugram-desktop-git
-wezterm-git
-spotify-launcher
-bazaar-git
+# steam is pinned too — installed via the gaming stack above (cachyos-gaming-meta + steam).
+# xbox: Greenlight — Xbox Cloud Gaming + Remote Play (xHome) client. [local-repo]
+greenlight-bin
+# discord (canary channel, Windows-Canary principle)
 discord-canary
-element-desktop-git
+# spotify
+spotify-launcher
+# ayugram
+ayugram-desktop-git
 # shell: zsh + starship (configured in /etc/skel, not force-set as login shell)
 zsh
 starship
@@ -253,7 +256,7 @@ starship
 bun
 # EndeavourOS ethos: keep AUR within reach
 paru
-# hiddify: DPI-resistant proxy/VPN client. [local-repo]
+# hiddify: DPI-resistant proxy/VPN client (tray). [local-repo]
 hiddify-next-bin
 
 

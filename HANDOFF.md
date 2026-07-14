@@ -67,9 +67,10 @@ scope for the KDE flagship (COSMIC-only / not an OS component).
   Layan DE; gaming stack + Game Mode; hardware tuning (`scx_lavd`, zram, sysctls, udev, `asusctl`,
   `zenpower3`, `mesa-tkg`); Blackwell AI; Btrfs snapshots.
 - **P1 — critical remaining:** (1) real ISO build on the Arch host (see §4); (2) wire `perfmax`,
-  `wired-toys`, `loadout` via real PKGBUILDs; (3) confirm Kira's exact Windows-taskbar app list and
-  reconcile the dock; (4) vendor the `Slot-Dark-Icons` theme into the overlay (referenced but not
-  shipped).
+  `wired-toys`, `loadout` via real PKGBUILDs; (3) ~~confirm Kira's taskbar~~ **DONE** — dock =
+  `chromium` (clang) · `freedownloadmanager` · `steam` · `greenlight-bin` (xbox) · `discord-canary` ·
+  `spotify-launcher` · `ayugram-desktop-git`; (4) vendor the `Slot-Dark-Icons` theme into the overlay
+  (referenced but not shipped).
 - **P2 — nice-to-have:** package the remaining KDE-relevant Kira tools (§2); SDDM Layan theme polish;
   optional in-ISO `linux-tkg-p03`.
 - **P3 / OOS:** COSMIC-only tools, niche apps.
@@ -106,8 +107,10 @@ in-ISO `linux-tkg-p03` kernel follow `build-tools/linux-tkg-p03/INTEGRATION.md` 
 1. **Package `perfmax`/`wired-toys`/`loadout`** → add `build-tools/<name>/PKGBUILD` + append to
    `build-local-repo.sh` + add names to `dr460nized/Packages-Desktop`. Accept: `makepkg` succeeds on
    the host and the names appear in `blackwell-local`.
-2. **Confirm Kira's taskbar apps** → reconcile the "DAILY DRIVER SOFTWARE" block in
-   `dr460nized/Packages-Desktop`. Accept: Kira signs off on the list.
+2. ~~**Confirm Kira's taskbar apps**~~ **DONE** — dock reconciled in `dr460nized/Packages-Desktop`
+   to: `chromium` (clang), `freedownloadmanager`, `steam`, `greenlight-bin` (xbox), `discord-canary`,
+   `spotify-launcher`, `ayugram-desktop-git`. (`greenlight-bin` = the Xbox Cloud Gaming/xHome client —
+   correct if "xbox" meant something else.)
 3. **Vendor `Slot-Dark-Icons`** → drop the theme into
    `dr460nized/desktop-overlay/usr/share/icons/Slot-Dark-Icons/`. Accept: `gcx-kde-theme.sh` finds it.
 4. **First real build** → run §4 on the host; capture the `buildiso` log. Accept: bootable ISO in
