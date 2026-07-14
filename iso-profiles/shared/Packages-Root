@@ -145,3 +145,8 @@ cachyos-v4-mirrorlist
 clang
 llvm
 lld
+
+## ALHP x86-64-v4 optimization injection (keyring + mirrorlist for the alhp repos in pacman.conf).
+## alhp-keyring must also be trusted on the build host so pacstrap can verify alhp packages.
+alhp-keyring
+alhp-mirrorlist

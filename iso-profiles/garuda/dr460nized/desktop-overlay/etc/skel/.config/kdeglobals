@@ -1,0 +1,16 @@
+# Copland OS KDE — Plasma defaults. gcx-kde-theme.sh (first login) applies the full Layan-dark
+# look-and-feel + Slot-Dark-Icons + Bibata cursor; these are the sensible pre-theme fallbacks.
+[KDE]
+SingleClick=false
+widgetStyle=kvantum
+AnimationDurationFactor=0.5
+
+[Icons]
+Theme=Slot-Dark-Icons
+
+[General]
+ColorScheme=BreezeDark
+TerminalApplication=konsole
+
+[KScreen]
+ScaleFactor=1

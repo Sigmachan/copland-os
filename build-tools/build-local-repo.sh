@@ -21,13 +21,16 @@ mkdir -p "$REPO_DIR" "$WORK"
 
 LOCAL_PKGBUILDS=("$HERE/../llama-cpp-blackwell")
 # AUR set restored after the no-AUR constraint was lifted (decky-loader = Bazzite Game Mode plugin
-# loader; google-chrome-dev = canary channel; zenpower3-dkms = Zen power/voltage sensors).
+# loader; greenlight-bin = Xbox Cloud Gaming/xHome client; zenpower3-dkms = Zen power/voltage sensors).
 # NOTE: xone-dongle-firmware is NOT built here — it's prebuilt in chaotic-aur (2.0.0-1) and its
 # local prepare() pulls firmware from Microsoft (fragile/non-reproducible); resolve it from chaotic.
 # python-aiohttp-jinja2 + python-aiohttp-cors are decky-loader's AUR-only deps (must precede it).
 # bleeding swaps (user: rawest/beta everywhere): protonup-qt-git, discord-canary.
 # (bottles-git is broken upstream right now — stale prepare() sed — so bottles stays stable from chaotic.)
-AUR_PKGS=(gamescope-git proton-ge-custom-bin apollo-cuda-git hiddify-next-bin python-aiohttp-jinja2 python-aiohttp-cors decky-loader google-chrome-dev zenpower3-dkms protonup-qt-git discord-canary)
+# Layan (KDE flagship theme) GTK + icon companions are AUR-only; the Plasma side
+# (plasma6-themes-layan-git) and the kwin effects come from chaotic-aur directly.
+# alhp-keyring + alhp-mirrorlist bootstrap the ALHP x86-64-v4 repos (AUR-only).
+AUR_PKGS=(gamescope-git proton-ge-custom-bin apollo-cuda-git hiddify-next-bin python-aiohttp-jinja2 python-aiohttp-cors decky-loader greenlight-bin zenpower3-dkms protonup-qt-git discord-canary layan-gtk-theme-git tela-circle-icon-theme-git alhp-keyring alhp-mirrorlist)
 FAILED=()
 
 build_dir() {

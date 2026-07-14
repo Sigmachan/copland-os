@@ -1,35 +1,34 @@
+extra/libheif
+####---->> INPUT
+wmctrl
+xdotool
+
+
 ####---->> XORG
 xorg-server
-xorg-xwayland 
-xorg-xhost
 xorg-xinit
 xorg-xinput
+xorg-xhost
+
+
+####---->> WAYLAND
+xorg-xwayland
+qt5-wayland
+qt6-wayland
 
 
 ####---->> UTILITIES
 autorandr
+power-profiles-daemon
 ugrep
 xdg-desktop-portal
 xdg-desktop-portal-gtk
 xdg-desktop-portal-kde
+xdg-user-dirs
 
 
 ####---->> NETWORKING
 firewalld
-
-
-####---->> THEMING
-beautyline
-garuda-dr460nized
-garuda-fish-config
-grub-theme-garuda-dr460nized
-kvantum
-kvantum-qt5
-
-
-####---->> DESKTOP EFFECTS
-kwin-effect-rounded-corners-git
-kwin-effects-better-blur-dx
 
 
 ####---->> DISPLAY MANAGER
@@ -37,46 +36,58 @@ sddm
 sddm-kcm
 
 
-####---->> DESKTOP ENVIRONMENT
-bluedevil
-kde-gtk-config
-kdeplasma-addons
-kf6-servicemenus-rootactions
-kinfocenter
-kscreen
-ksshaskpass
-kwallet-pam
-kwayland-integration
-kwin
-plasma-applet-window-buttons
-plasma-browser-integration
+####---->> KDE PLASMA 6 (Copland flagship DE)
 plasma-desktop
-plasma-firewall
-plasma-nm
+plasma-workspace
+plasma-workspace-wallpapers
 plasma-pa
-plasma-systemmonitor
+plasma-nm
+plasma-firewall
 plasma-thunderbolt
+plasma-systemmonitor
+plasma-browser-integration
+plasma-disks
+plasma-integration
+plasma-applet-window-buttons
 plasma6-applets-window-title
 plasma6-wallpapers-blurredwallpaper
-power-profiles-daemon
+kdeplasma-addons
+kwin
+kscreen
+kscreenlocker
 powerdevil
+bluedevil
+kde-gtk-config
+kgamma
+kinfocenter
+kwallet-pam
+kwayland-integration
+ksshaskpass
+kf6-servicemenus-rootactions
 quota-tools
+breeze
+breeze-gtk
 
 
-####---->> DESKTOP ENVIRONMENT APPS
+####---->> KDE APPS
 ark
-discover
 dolphin
 dolphin-plugins
 kate
-kdeconnect
 konsole
 okular
-partitionmanager
+gwenview
 spectacle
+kcalc
+kfind
+filelight
+kdeconnect
+partitionmanager
+discover
+octopi
 
 
-####---->> ADDITIONAL FUNCTIONALITY
+####---->> INTEGRATION / THUMBNAILS
 appmenu-gtk-module
 ffmpegthumbs
 ffmpeg
@@ -84,17 +95,184 @@ openh264
 libdvdcss
 kdegraphics-thumbnailers
 kimageformats
-octopi
 qt6-imageformats
 qt6-quick3d
 resvg
+libappindicator-gtk3
+libinput-gestures-qt
 sshfs
+
+
+####---->> LAYAN THEMING (dark, blurred, rounded — replaces garuda-dr460nized dragonized theme)
+# Kira's pick: Layan (global Plasma theme + kvantum + aurorae + colors) instead of the default
+# garuda-dr460nized meta. Standalone components so it stays independent of the garuda flagship theme.
+plasma6-themes-layan-git
+layan-gtk-theme-git
+gtk-engine-murrine
+kvantum
+kvantum-qt5
+# icons: Kira's Slot-Dark-Icons ships via the desktop-overlay (not in repos); beautyline + tela-circle
+# are present fallbacks that pair well with Layan-dark.
+beautyline
+tela-circle-icon-theme-git
+sweet-gtk-theme-dark
+# cursor: Bibata (see CURSOR section)
+# desktop effects: extra blur + rounded corners on top of Layan
+kwin-effect-rounded-corners-git
+kwin-effects-better-blur-dx
+# grub theme
+grub-theme-garuda
+
+
+####---->> GARUDA THEMING & SHELL
+garuda-fish-config
 
 
 ####---->> OTHER APPS
 firedragon
 firedragon-extension-plasma-integration
-libappindicator-gtk3
-libinput-gestures-qt
-mpv
+mpv-git
 mpv-uosc
+
+
+####---->> CACHYOS GAMING STACK (Bazzite/Nobara/SteamOS/CachyOS ports)
+# cachyos-gaming-meta pulls wine-cachyos-opt, proton-cachyos-slr, umu-launcher, protontricks,
+# winetricks, vulkan-tools + the full lib32 runtime.
+cachyos-gaming-meta
+steam
+heroic-games-launcher-git
+lutris-git
+wqy-zenhei
+# gamescope: Kira's own / AUR (gamescope-git Provides gamescope; satisfies the session dep). [local-repo]
+gamescope-git
+# proton: Kira's own / AUR (GE-Proton) merged in; proton-cachyos-slr still arrives via the meta. [local-repo]
+proton-ge-custom-bin
+# extras not pulled by the meta:
+gamemode
+lib32-gamemode
+vkbasalt
+lib32-vkbasalt
+protonup-qt-git
+bottles
+game-devices-udev
+# rtkit: realtime scheduling for audio/gaming.
+rtkit
+# controllers: Xbox Elite Series 2 (xpadneo, BT) + Xbox Wireless Adapter (xone, USB 045e:02fe).
+# DKMS builds against KERNEL-headers (shipped via shared/Packages-Root).
+xpadneo-dkms-git
+xone-dkms-git
+xone-dongle-firmware
+# Game-stream host: Apollo (ClassicOldSong Sunshine fork) CUDA/NVENC build for Blackwell AV1. [local-repo]
+apollo-cuda-git
+
+
+####---->> CONTENT CREATION (Nobara-style)
+obs-studio-git
+obs-vkcapture-git
+lib32-obs-vkcapture-git
+easyeffects-git
+
+
+####---->> STEAMOS/BAZZITE/CHIMERAOS GAME MODE SESSION
+# gamescope-session-cachyos Provides gamescope-session-git + gamescope-session-steam-git
+# (ChimeraOS lineage), ships the GDM/SDDM-selectable "Gamescope" Steam Big Picture session +
+# steamos-session-select. Plasma (SDDM) stays the default session; Game Mode is opt-in.
+gamescope-session-cachyos
+# decky-loader: Steam Deck / Bazzite Game Mode plugin loader. AUR -> blackwell-local.
+decky-loader
+
+
+####---->> HARDWARE LAYER: RTX 5090 (Blackwell) + Ryzen 9950X3D (Zen5)
+# NVIDIA userspace (open module KERNEL-nvidia-open is in Packages-Mhwd); znver4-optimized.
+nvidia-utils
+lib32-nvidia-utils
+nvidia-settings
+opencl-nvidia
+lib32-opencl-nvidia
+# Zen5 dual-CCD: sched_ext schedulers (scx_lavd enabled via scx_lavd.service overlay).
+scx-scheds-git
+# zram swap + sensors
+zram-generator
+lm_sensors
+# zenpower3: Zen power/voltage/current sensors. DKMS builds vs KERNEL-headers. AUR -> blackwell-local.
+zenpower3-dkms
+# Bleeding Mesa for the RDNA2 iGPU + Vulkan layers (Provides the mesa stack).
+mesa-tkg-git
+lib32-mesa-tkg-git
+# LACT: Nobara-style GPU control panel (fan curves / clocks / power for the RTX 5090 + iGPU).
+lact
+
+
+####---->> CACHYOS OPTIMIZATION (everything-but-immutable from CachyOS)
+# CachyOS's tuning set: sysctl/udev/systemd tweaks + ananicy auto-nice rules + kernel-build GUI.
+cachyos-settings
+ananicy-cpp
+cachyos-ananicy-rules
+cachyos-kernel-manager
+
+
+####---->> GARUDA FEATURES PORTED (btrfs snapshots + rollback)
+# The Garuda hallmark: Snapper + grub-btrfs boot-into-snapshot + a GUI to manage/rollback.
+snapper
+snapper-support
+btrfs-assistant
+
+
+####---->> X870E HERO DRIVERS + BLACKWELL AI STACK
+# WiFi 7 (MediaTek MT7927 / Filogic 380, mt7925e) + MediaTek Bluetooth firmware.
+linux-firmware-mediatek
+# ROG X870E control: fan curves, Aura, platform profiles.
+asusctl
+# AMD RDNA2 iGPU VA-API verification (vainfo) for the hybrid-graphics offload path.
+libva-utils
+# CUDA runtime/toolkit for the Blackwell AI stack (llama.cpp-blackwell + vLLM).
+cuda
+# llama.cpp built for Blackwell (CUDA arch 120a / sm_120). [local-repo]
+llama.cpp-blackwell
+# Upscayl: Vulkan/NCNN AI image upscaler (runs on the 5090 and the iGPU).
+upscayl-desktop-git
+# vLLM + vllm-playground are provisioned first-boot via /usr/local/bin/blackwell-ai-setup.
+
+
+####---->> DAILY DRIVER SOFTWARE: Kira's pinned dock (confirmed) + shell + claw code
+# Kira's taskbar: chromium (clang) · fdm · steam · xbox · discord · spotify · ayugram
+# chromium: the Clang/LTO/PGO-optimized build wins from cachyos-znver4 / ALHP by repo priority.
+chromium
+# fdm (Free Download Manager)
+freedownloadmanager
+# steam is pinned too — installed via the gaming stack above (cachyos-gaming-meta + steam).
+# xbox: Greenlight — Xbox Cloud Gaming + Remote Play (xHome) client. [local-repo]
+greenlight-bin
+# discord (canary channel, Windows-Canary principle)
+discord-canary
+# spotify
+spotify-launcher
+# ayugram
+ayugram-desktop-git
+# shell: zsh + starship (configured in /etc/skel, not force-set as login shell)
+zsh
+starship
+# claw code (gajae-code / Red-claw) provisioned via bun on first login (overlay autostart)
+bun
+# EndeavourOS ethos: keep AUR within reach
+paru
+# hiddify: DPI-resistant proxy/VPN client (tray). [local-repo]
+hiddify-next-bin
+
+
+####---->> BUILD / DEV TOOLS (base-devel via shared/Packages-Root; toolchain for AUR/tkg/local builds)
+git
+cmake
+ninja
+meson
+mold
+ccache
+rustup
+
+
+####---->> CURSOR (Bibata; GTK + KDE)
+bibata-cursor-theme
+
+
+####---->> LAYOUT / DIALOGS
+zenity
