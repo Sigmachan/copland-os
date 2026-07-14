@@ -1,0 +1,324 @@
+# Instincts generated from https://github.com/Sigmachan/copland-os
+# Generated: 2026-07-14T01:01:37.833Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: copland-os-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Sigmachan/copland-os
+---
+
+# Copland Os Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: docs, feat
+
+## Evidence
+
+- 3 commits analyzed
+- Detected conventional commit pattern
+- Examples: docs: add AGENTS.md with Cursor Cloud setup instructions, feat: add KDE Plasma 6 + Layan flagship profile (dr460nized)
+
+---
+id: copland-os-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Sigmachan/copland-os
+---
+
+# Copland Os Commit Length
+
+## Action
+
+Write moderate-length commit messages (~57 characters)
+
+## Evidence
+
+- Average commit message length: 57 chars
+- Based on 3 commits
+
+---
+id: copland-os-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Sigmachan/copland-os
+---
+
+# Copland Os Naming Files
+
+## Action
+
+Use kebab-case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: kebab-case
+
+---
+id: copland-os-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Sigmachan/copland-os
+---
+
+# Copland Os Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: copland-os-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Sigmachan/copland-os
+---
+
+# Copland Os Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: copland-os-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Sigmachan/copland-os
+---
+
+# Copland Os Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: copland-os-workflow-update-documentation-files
+trigger: "when doing update documentation files"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Sigmachan/copland-os
+---
+
+# Copland Os Workflow Update Documentation Files
+
+## Action
+
+Follow the update-documentation-files workflow:
+1. Edit or create relevant markdown documentation files (e.g., AGENTS.md, README.md, PROMPT.md).
+2. Commit changes with a 'docs:' prefix in the commit message.
+3. Co-author attribution if applicable.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: AGENTS.md, README.md, PROMPT.md
+
+---
+id: copland-os-instinct-file-naming
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct File Naming
+
+## Action
+
+Use kebab-case for file names (e.g., my-feature.ts)
+
+## Evidence
+
+- Pattern in namingConventions.files: kebab-case
+
+---
+id: copland-os-instinct-function-naming
+trigger: "When defining a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Function Naming
+
+## Action
+
+Use camelCase for function names (e.g., getProfileData)
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: copland-os-instinct-class-naming
+trigger: "When defining a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names (e.g., ProfileManager)
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: copland-os-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names (e.g., DEFAULT_PROFILE)
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: copland-os-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Import Style
+
+## Action
+
+Use relative import paths (e.g., import { X } from './module')
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: copland-os-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Export Style
+
+## Action
+
+Use named exports (e.g., export { myFunction })
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: copland-os-instinct-git-commit-format
+trigger: "When making a git commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Git Commit Format
+
+## Action
+
+Use conventional commit prefixes (e.g., 'docs:' for documentation, 'feat:' for features)
+
+## Evidence
+
+- Pattern in commits.prefixes: ['docs', 'feat']
+- Examples: 'docs: add AGENTS.md...', 'feat: add KDE Plasma 6...'
+
+---
+id: copland-os-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 57 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 57
+
+---
+id: copland-os-instinct-update-documentation-files
+trigger: "When documenting new features, updating flagship status, or providing setup instructions"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: Sigmachan/copland-os
+---
+
+# Copland Os Instinct Update Documentation Files
+
+## Action
+
+Edit or create relevant markdown documentation files (AGENTS.md, README.md, PROMPT.md), then commit with a 'docs:' prefix
+
+## Evidence
+
+- Workflow: update-documentation-files
+- Example commit: 'docs: add AGENTS.md with Cursor Cloud setup instructions'
+
