@@ -1,0 +1,19 @@
+# Copland OS KDE — KWin defaults: blur + rounded corners on, Wayland-friendly.
+# gcx-kde-theme.sh applies the Layan-dark look-and-feel on first login (aurorae + colors);
+# this file just guarantees the blur/rounded-corners compositor effects are on out of the box.
+[Compositing]
+OpenGLIsUnsafe=false
+WindowsBlockCompositing=true
+
+[Plugins]
+blurEnabled=true
+contrastEnabled=true
+# rounded corners (kwin-effect-rounded-corners-git -> shapecorners)
+shapecornersEnabled=true
+
+[Effect-blur]
+BlurStrength=8
+NoiseStrength=4
+
+[Wayland]
+InputMethod=
