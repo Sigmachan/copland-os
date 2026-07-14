@@ -32,8 +32,13 @@ mkdir -p ~/.config/garuda-tools
 echo 'run_dir=/workspace/iso-profiles' > ~/.config/garuda-tools/iso-profiles.conf
 ```
 
-Then `sudo buildiso -q -p gnome` runs **query/pretend** mode: it parses the Copland OS GNOME profile
-and prints its settings, then **intentionally exits 1** (this is success for `-q`, not an error).
+Then `sudo buildiso -q -p <profile>` runs **query/pretend** mode: it parses the profile and prints its
+settings, then **intentionally exits 1** (this is success for `-q`, not an error). Copland flagship
+profiles: **`dr460nized`** (KDE Plasma 6 + Layan, the daily driver) and **`gnome`** (alternative).
+Both live under `iso-profiles/garuda/`. The DE-agnostic Copland layer (branding, hardware, gaming, AI)
+is currently **duplicated by copy** in each profile's `desktop-overlay/` (edit both, or refactor to a
+shared overlay later); only the desktop layer differs. Validate profile edits with
+`sudo buildiso -q -p dr460nized` and lint with `cd iso-profiles && bash .ci/lint.sh`.
 
 ### Environment notes
 - Dependency install is handled by the startup update script (apt: `m4 make shellcheck shfmt yamllint

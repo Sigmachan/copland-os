@@ -14,7 +14,7 @@ CachyOS (Arch), Ryzen 9 9950X3D (Zen5), RTX 5090. Build dir: `~/dev/garuda-cachy
 ## LOCKED SPEC
 | Layer | Choice |
 |---|---|
-| Base distro | Garuda **GNOME** (`iso-profiles/garuda/gnome`) — not KDE |
+| Base distro | Garuda **KDE Plasma 6** (`iso-profiles/garuda/dr460nized`) themed with **Layan** — flagship; GNOME (`iso-profiles/garuda/gnome`) kept as an alternative |
 | Package repos | **CachyOS znver4** (`cachyos-znver4`/`-core`/`-extra` + `cachyos`) injected ABOVE arch/garuda in the build pacman.conf → optimized pkgs win by priority; garuda-* metas stay |
 | Kernel | **`linux-cachyos-rc`** (7.1.rcX, znver4) + headers |
 | GPU (5090) | **`linux-cachyos-rc-nvidia-open`** (prebuilt module for rc — NO DKMS, dodges the rc-DKMS-fail) + nvidia-utils/lib32/settings, via `garuda-hardware-profile-nvidia` (mhwd) |

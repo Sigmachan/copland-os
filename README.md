@@ -1,9 +1,13 @@
 # Copland OS
 
-A custom **Garuda GNOME × CachyOS** Linux image, tuned for a **Ryzen 9 9950X3D (Zen 5 / x86-64-v4)** +
-**RTX 5090 (Blackwell)** workstation. Structurally it stays Garuda (GNOME, `dr460nized`/garuda metas,
-configs intact) — the package **source** is swapped to CachyOS's `znver4` (AVX-512) repos, with a
+A custom **Garuda × CachyOS** Linux image, tuned for a **Ryzen 9 9950X3D (Zen 5 / x86-64-v4)** +
+**RTX 5090 (Blackwell)** workstation. Structurally it stays Garuda (garuda metas, configs, hooks
+intact) — the package **source** is swapped to CachyOS's `znver4` (AVX-512) repos, with a
 bleeding-edge rc kernel, NVIDIA open module, a gaming/creator stack, and a SteamOS-style Game Mode.
+
+**Flagship DE: KDE Plasma 6 + Layan** (`iso-profiles/garuda/dr460nized`) — dark, blurred, rounded,
+Kira's daily driver. The **GNOME** profile (`iso-profiles/garuda/gnome`) is kept as a fully-built
+alternative. Both share the same CachyOS/hardware/gaming/AI base; only the desktop layer differs.
 
 > Name from *Serial Experiments Lain* (the Navi runs "Copland OS Enterprise").
 > `os-release` keeps `ID=garuda` so garuda tooling/hooks keep working — only the branding + package
@@ -11,8 +15,16 @@ bleeding-edge rc kernel, NVIDIA open module, a gaming/creator stack, and a Steam
 
 ## What's in it
 
+- **Desktop (flagship)** — **KDE Plasma 6** themed with **Layan** (dark global theme + kvantum +
+  aurorae) instead of the default dragonized meta, plus `kwin` blur + rounded-corners effects, SDDM,
+  Slot-Dark icons and Bibata cursor. GNOME profile stays available.
 - **Optimized base** — `cachyos-znver4`/`-core`/`-extra` + `cachyos` repos injected **above**
-  `core/extra/multilib` so prebuilt x86-64-v4 packages win by priority; garuda-* metas remain.
+  `core/extra/multilib` so prebuilt x86-64-v4 packages win by priority; garuda-* metas remain. Ships
+  the CachyOS tuning set (`cachyos-settings`, `ananicy-cpp` + `cachyos-ananicy-rules`) and
+  `cachyos-kernel-manager` for building custom CachyOS/tkg-style kernels post-install.
+- **Distro feature ports** — Garuda Btrfs snapshots + boot-into-snapshot rollback (`snapper`,
+  `snapper-support`, `grub-btrfs`, `btrfs-assistant`); Nobara-style GPU control (`lact`); PikaOS/Bazzite
+  `scx_lavd` scheduler.
 - **Kernel / GPU** — `linux-cachyos-rc` + matching prebuilt `linux-cachyos-rc-nvidia-open`
   (no DKMS), `nvidia-utils`/`lib32`, DRM KMS early-load, `nvidia_drm.modeset=1`.
 - **Gaming (Bazzite/Nobara/SteamOS/ChimeraOS ports)** — `cachyos-gaming-meta` (proton-cachyos, wine,
@@ -29,6 +41,7 @@ bleeding-edge rc kernel, NVIDIA open module, a gaming/creator stack, and a Steam
 
 | Path | What |
 |---|---|
+| `iso-profiles/garuda/dr460nized/` | **flagship KDE Plasma 6 + Layan profile**: `Packages-*` + `desktop-overlay/` |
 | `iso-profiles/garuda/gnome/` | the GNOME profile: package lists (`Packages-*`) + `desktop-overlay/` |
 | `iso-profiles/shared/` | shared package lists + overlays |
 | `garuda-tools/data/` | build `pacman-*.conf` (repo priority) + `make.conf.d` (znver5 Clang/ThinLTO for local builds) |
@@ -54,11 +67,23 @@ Server = https://github.com/Sigmachan/copland-os/releases/download/pkgs
 Repo packages stay prebuilt `znver4` (90% of the gain, zero compile). Build with garuda-tools:
 
 ```bash
-sudo buildiso -p gnome   # run from this iso-profiles dir; output to /var/cache/garuda-tools/...
+sudo buildiso -p dr460nized   # KDE + Layan flagship (run from this iso-profiles dir)
+sudo buildiso -p gnome        # GNOME alternative
+# output to /var/cache/garuda-tools/...
 ```
 
-Requires an **AVX-512 (x86-64-v4)** CPU; the image targets NVIDIA. The 197 MB `Slot-Dark-Icons`
+Requires an **AVX-512 (x86-64-v4)** CPU; the image targets NVIDIA. The `Slot-Dark-Icons`
 theme is not vendored here — drop your icon theme into the desktop-overlay before building.
+
+### Kernel (linux-tkg)
+
+Default shipped kernel is **`linux-cachyos-rc`** (prebuilt znver4; BORE/sched-ext + Clang/LTO + a
+matching prebuilt `nvidia-open`, no DKMS). For the full **linux-tkg** experience:
+
+- **Post-install:** `cachyos-kernel-manager` (shipped) builds custom CachyOS/tkg-style kernels with a
+  GUI (scheduler, LTO, patch-set choices) — the "whole tkg set" without baking many kernels into the ISO.
+- **In the ISO (opt-in):** build `build-tools/linux-tkg-p03` via its `build.sh` and wire it in per
+  `build-tools/linux-tkg-p03/INTEGRATION.md`, then `sudo buildiso -p dr460nized -k linux-tkg-p03`.
 
 ## Credits
 
