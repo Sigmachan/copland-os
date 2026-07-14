@@ -12,4 +12,4 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 # Handy aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias update='paru -Syu'
+alias update='upm -Syu'

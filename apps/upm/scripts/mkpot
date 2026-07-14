@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+xtr \
+	-d upm \
+	--msgid-bugs-address https://github.com/Morganamilo/upm \
+	--package-name=upm\
+	--package-version="$(awk -F '=' '/^version/ {print $2}' Cargo.toml | sed 's/\"//g')" \
+	-k printtr -k tr \
+	-o=po/upm.pot \
+	src/lib.rs

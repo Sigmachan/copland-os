@@ -5,6 +5,7 @@
 # cachyos/chaotic directly and are NOT built here.
 #
 # AUR/custom built here:
+#   upm                  (Copland pacman/AUR manager, replaces paru)
 #   llama.cpp-blackwell   (local PKGBUILD, CUDA sm_120a)
 #   gamescope-git         (user's own gamescope, Provides gamescope)
 #   proton-ge-custom-bin  (user's own proton, GE)
@@ -19,7 +20,7 @@ DB="blackwell-local"
 WORK="$HERE/work"
 mkdir -p "$REPO_DIR" "$WORK"
 
-LOCAL_PKGBUILDS=("$HERE/../llama-cpp-blackwell")
+LOCAL_PKGBUILDS=("$HERE/upm" "$HERE/llama-cpp-blackwell")
 # AUR set restored after the no-AUR constraint was lifted (decky-loader = Bazzite Game Mode plugin
 # loader; google-chrome-dev = canary channel; zenpower3-dkms = Zen power/voltage sensors).
 # NOTE: xone-dongle-firmware is NOT built here — it's prebuilt in chaotic-aur (2.0.0-1) and its

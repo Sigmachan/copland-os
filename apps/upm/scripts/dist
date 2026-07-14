@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+cargo build --release --features generate --locked --target-dir target
+scripts/mkmo locale/
+strip target/release/upm
+
+tar --zstd -cf upm.tar.zst man completions upm.conf locale -C target/release upm
+

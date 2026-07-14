@@ -179,8 +179,7 @@ zsh
 starship
 # claw code (gajae-code / Red-claw) provisioned via bun on first login (overlay autostart)
 bun
-# EndeavourOS ethos: keep AUR within reach
-paru
+# Copland package manager `upm` is supplied by Packages-Desktop-Common. [local-repo]
 # v2: hiddify INCLUDED (DPI-resistant proxy/VPN client; directly fixes the throttling this build hit). [local-repo]
 hiddify-next-bin
 # Skipped (not in repos -> post-install): google-chrome-canary/dev, visual-studio-code-insiders, steamidra.

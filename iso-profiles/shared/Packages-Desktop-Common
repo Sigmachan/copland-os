@@ -7,7 +7,7 @@ xdg-utils
 
 ## Package Management
 >extra downgrade
->extra paru
+upm
 
 ## Firmware
 >extra fwupd
