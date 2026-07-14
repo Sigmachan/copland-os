@@ -44,7 +44,7 @@ build_dir() {
 for d in "${LOCAL_PKGBUILDS[@]}"; do build_dir "$d"; done
 
 for p in "${AUR_PKGS[@]}"; do
-    rm -rf "$WORK/$p"
+    rm -rf "${WORK:?}/$p"
     if git clone --depth 1 "https://aur.archlinux.org/$p.git" "$WORK/$p" 2>/dev/null; then
         build_dir "$WORK/$p"
     else
@@ -66,7 +66,9 @@ sudo chmod -R a+rX "$DEPLOY"
 echo "================================================"
 echo "BUILD DIR  : $REPO_DIR"
 echo "DEPLOYED   : $DEPLOY  (file:// repo for buildiso; world-readable for DownloadUser=alpm)"
-ls -1 "$DEPLOY"/*.pkg.tar.zst 2>/dev/null | sed 's#.*/#  #'
+for pkg in "$DEPLOY"/*.pkg.tar.zst; do
+    [[ -e $pkg ]] && printf '  %s\n' "${pkg##*/}"
+done
 echo "FAILED     : ${FAILED[*]:-none}"
 echo
 echo "Already wired in garuda-tools/data/pacman-{default,multilib}.conf as:"

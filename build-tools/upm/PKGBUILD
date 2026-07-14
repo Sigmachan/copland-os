@@ -30,6 +30,12 @@ build() {
   export CARGO_TARGET_DIR="$srcdir/target"
   export CARGO_PROFILE_RELEASE_LTO=thin
   export CARGO_PROFILE_RELEASE_CODEGEN_UNITS=1
+  if [[ ${UPM_BUILD_TOOLCHAIN:-llvm} == gcc ]]; then
+    export RUSTFLAGS="-C target-cpu=znver5"
+    cargo clean --release
+    cargo build --release --locked
+    return
+  fi
   export RUSTFLAGS="${RUSTFLAGS:-} -C target-cpu=znver5 -C linker=clang -C link-arg=-fuse-ld=lld"
   if ! cargo build --release --locked; then
     warning "LLVM build failed; retrying UPM itself with the system GCC linker"
