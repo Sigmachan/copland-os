@@ -6,6 +6,8 @@ This repo is the **Copland OS** distro-build project: a fork of Garuda Linux's `
 (shell/m4 ISO build toolchain) plus `iso-profiles` (profile definitions) and `build-tools`
 (custom Arch packages). The "product" is a bootable Arch/CachyOS ISO, not a long-running service.
 
+For product state, scope/priorities, and how Kira's own repos map to real packages, see `HANDOFF.md`.
+
 ### Key constraint: no full ISO build here
 The cloud VM is Ubuntu, but a real build (`sudo buildiso -p gnome`) targets an **Arch/CachyOS host**
 and needs `pacman`/`archiso`, root, and multi-GB downloads. **Do not attempt a full ISO build on this
